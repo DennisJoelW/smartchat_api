@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChatHistory extends Model
 {
+    use HasFactory;
+
+    protected $primaryKey = 'chatid'; // Specify the custom primary key
+
     protected $fillable = ['user_id', 'date', 'questions_answers'];
 
     protected $casts = [

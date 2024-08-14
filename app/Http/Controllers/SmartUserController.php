@@ -39,4 +39,15 @@ class SmartUserController extends Controller
         $chatHistories = $user->chatHistories;
         return response()->json($chatHistories);
     }
+
+    public function getUserByUsername($username)
+    {
+        $user = SmartUser::where('username', $username)->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json($user);
+    }   
 }
